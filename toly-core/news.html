@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Company news and weekly updates from Toly.">
+  <title>Company News | Toly</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="news">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><span class="brand-name">Toly</span><span class="brand-line">Private prototype</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="tools.html">Tools</a>
+        <a class="nav-link" href="games.html">Games</a>
+        <a class="nav-link" href="studio.html">Axerith</a>
+        <a class="nav-link active" href="news.html">News</a>
+        <a class="nav-link" href="admin.html">Admin</a>
+        <a class="nav-link" href="cli.html">CLI</a>
+        <button class="theme-toggle" type="button">Mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Company news</p>
+        <h1>Weekly updates, when there is something real to say.</h1>
+        <p class="lead">This page is data-driven. It can show public company notes without rewriting page markup, while staying empty when there are no updates yet.</p>
+        <div class="actions"><a class="button primary" href="admin.html">Open private editor</a><a class="button ghost" href="index.html">Back home</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Feed</p>
+          <h2>Public-readable notes.</h2>
+          <p class="section-copy">Filter by area once posts exist. The first real update should be written only when there is a meaningful company note to publish.</p>
+          <div class="filter-bar" aria-label="Filter company news">
+            <button class="filter active" type="button" data-news-filter="all">All</button>
+            <button class="filter" type="button" data-news-filter="company">Company</button>
+            <button class="filter" type="button" data-news-filter="tools">Tools</button>
+            <button class="filter" type="button" data-news-filter="games">Games</button>
+            <button class="filter" type="button" data-news-filter="studio">Studio</button>
+          </div>
+        </div>
+        <div class="news-list" data-news-list></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-note">News is loaded from data/news.json and browser preview drafts. The static site needs exported JSON or the CLI publisher for permanent updates.</p>
+      <div class="footer-links"><a href="index.html">Home</a><a href="tools.html">Tools</a><a href="games.html">Games</a><a href="studio.html">Axerith</a></div>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/news.js"></script>
+</body>
+</html>

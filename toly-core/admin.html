@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Private editor for Toly company news updates.">
+  <title>News Editor | Toly</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="admin">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><span class="brand-name">Toly</span><span class="brand-line">Private prototype</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="tools.html">Tools</a>
+        <a class="nav-link" href="games.html">Games</a>
+        <a class="nav-link" href="studio.html">Axerith</a>
+        <a class="nav-link" href="news.html">News</a>
+        <a class="nav-link active" href="admin.html">Admin</a>
+        <a class="nav-link" href="cli.html">CLI</a>
+        <button class="theme-toggle" type="button">Mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Private publisher</p>
+        <h1>Write weekly company news without editing page markup.</h1>
+        <p class="lead">Press Publish to add the update to the browser preview feed. Export the JSON snapshot or use the CLI script to make the update permanent in the static site data file.</p>
+        <div class="actions">
+          <a class="button primary" href="cli.html">Open CLI console</a>
+          <a class="button ghost" href="news.html">View news feed</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container editor-layout">
+        <form class="editor-card reveal" id="news-form">
+          <p class="eyebrow">New update</p>
+          <label>Title <input name="title" required placeholder="A clear public title"></label>
+          <label>Date <input name="date" type="date" required></label>
+          <label>Category
+            <select name="category">
+              <option value="company">Company</option>
+              <option value="tools">Tools</option>
+              <option value="games">Games</option>
+              <option value="studio">Studio</option>
+            </select>
+          </label>
+          <label>Summary <textarea name="summary" required placeholder="Short consumer-facing summary."></textarea></label>
+          <label>Body <textarea name="body" placeholder="Optional longer detail. Keep it public-safe and concrete."></textarea></label>
+          <div class="editor-actions">
+            <button class="button primary" type="submit">Publish to preview</button>
+            <button class="button" type="button" id="export-json">Export news.json</button>
+            <button class="button ghost" type="button" id="clear-drafts">Clear local drafts</button>
+          </div>
+          <p class="editor-status" id="admin-status" aria-live="polite">Ready to write a public-safe update.</p>
+        </form>
+
+        <aside class="preview-card reveal">
+          <p class="eyebrow">Live preview</p>
+          <div class="news-list" id="admin-preview"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="container split">
+        <div class="reveal">
+          <p class="eyebrow">How real publishing works</p>
+          <h2>Static sites need data updates.</h2>
+          <p class="section-copy">A browser on GitHub Pages cannot safely write to the repository by itself. The private CLI console can talk to a local backend now; a production version would still need authentication before it touched public data.</p>
+        </div>
+        <div class="notice reveal">
+          <p class="tiny-label">CLI option</p>
+          <pre><code>python scripts/publish_log.py --title "Weekly note" --summary "Short public summary" --category company --body "Longer update"</code></pre>
+          <p class="editor-status">The CLI writes to data/news.json. Commit that file when the update is approved for the public site.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-note">The editor is private. Public visitors should only see approved updates on the News page.</p>
+      <div class="footer-links"><a href="cli.html">CLI</a><a href="news.html">View news</a><a href="index.html">Home</a><a href="tools.html">Tools</a><a href="games.html">Games</a></div>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
